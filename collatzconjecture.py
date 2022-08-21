@@ -1,5 +1,5 @@
 import time
-from numba import jit
+
 
 def collatz():
     #c = float(input("Enter starting number (1 --> Any): "))
@@ -64,7 +64,7 @@ def collatz():
 
     print("\nSteps: ",kount,"\n---------------------------------")
     histotrac = dict(zip((1, 2, 3, 4, 5, 6, 7, 8, 9), (h1, h2, h3, h4, h5, h6, h7, h8, h9)))
-    '''
+    
     print("GRAPHICAL DISPLAY\n---------------------------------\nkey: up to down --> 1-9")
     for k in histotrac.keys():
         for u in range(histotrac[k]):
@@ -73,19 +73,7 @@ def collatz():
 
     print("BENFORD'S LAW displayed: https://cutt.ly/vO7ninN ")
     print("---------------------------------")
-    '''
+    
     print("Stats: ", histotrac)
 
 
-collatzjit = jit(nopython=True)(collatz)
-
-#jitless
-start = time.time()
-collatz()
-end = time.time()
-print("Processing time: ",end-start,"s")
-
-start2 = time.time()
-collatzjit()
-end2 = time.time()
-print("Processing time: ",end2-start2,"s")
